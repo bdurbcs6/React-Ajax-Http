@@ -8,11 +8,9 @@ class Friends extends Component {
     super(props);
     this.state = {
       friends: [],
-      friend: {
         name: '',
         age: '',
         email: ''
-      }
     }
   }
 
@@ -40,11 +38,10 @@ class Friends extends Component {
   };
 
   handleSubmitFriend = () => {
-    const friend = {friend: this.state.friend}
+    const friend = {name: this.state.name, age: this.state.age, email: this.state.email }
     axios
       .post('http://localhost:5000/friends', friend)
       .then(res => {
-        console.log(res)
         this.setState({ friends: res.data })
       })
       .catch(err => {
@@ -56,7 +53,14 @@ class Friends extends Component {
   render() { 
     return (
       <div>
-        <FriendForm submitFriend = {this.handleSubmitFriend} name={this.state.handleNameChange} age={this.state.handleAgeChange} email={this.state.handleEmailChange}/>
+        <FriendForm
+          submitFriend={this.handleSubmitFriend}
+          handleNameChange={this.handleNameChange}
+          handleAgeChange={this.handleAgeChange}
+          handleEmailChange={this.handleEmailChange}
+          name={this.state.name}
+          age={this.state.age}
+          email={this.state.email}/>
         {this.state.friends.map(friend => (
           <Friend key={friend.id} friend={friend} />
         ))}
