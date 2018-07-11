@@ -50,6 +50,18 @@ class Friends extends Component {
       this.setState({ name: '', age: '', email: ''})
   };
 
+  handleDeleteFriend = id => {
+      axios
+      .delete(`http://localhost:5000/friends/${id}`)
+      .then(res => {
+        console.log(res)
+        this.setState({ friends: res.data })
+      })
+      .catch(err => {
+        console.log("you messed up", err)
+      })
+  };
+
 
   render() { 
     return (
@@ -61,7 +73,7 @@ class Friends extends Component {
           age={this.state.age}
           email={this.state.email}/>
         {this.state.friends.map(friend => (
-          <Friend key={friend.id} friend={friend} />
+          <Friend key={friend.id} friend={friend} handleDeleteFriend={this.handleDeleteFriend}/>
         ))}
       </div>
     );
