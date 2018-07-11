@@ -54,7 +54,6 @@ class Friends extends Component {
       axios
       .delete(`http://localhost:5000/friends/${id}`)
       .then(res => {
-        console.log(res)
         this.setState({ friends: res.data })
       })
       .catch(err => {
