@@ -6,7 +6,8 @@
   width: 400px;
   margin-top: 10px;
   background-color:whitesmoke;
-  border: 1px solid red;
-  box-shadow: 1px 1px 1px red;
+  border: 1px solid gray;
+  box-shadow: 1px 1px 1px gray;
   justify-content: center;
+  align-items: center;
 }

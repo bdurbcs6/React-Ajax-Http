@@ -4,11 +4,11 @@ import './Friend.css';
 const Friend = props => {
   return (
     <div className="friendCard">
-      <ul>
-        Name: {props.friend.name}<br/>
-        Age: {props.friend.age}<br/>
+      
+        Name: {props.friend.name}<br/><br/>
+        Age: {props.friend.age}<br/><br/>
         Email: {props.friend.email}
-      </ul>
+      
     </div>
   );
 }
