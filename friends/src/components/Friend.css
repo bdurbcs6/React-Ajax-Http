@@ -1,0 +1,12 @@
+
+.friendCard {
+  display: flex;
+  margin: 0 auto;
+  height: 100px;
+  width: 400px;
+  margin-top: 10px;
+  background-color:whitesmoke;
+  border: 1px solid red;
+  box-shadow: 1px 1px 1px red;
+  justify-content: center;
+}
