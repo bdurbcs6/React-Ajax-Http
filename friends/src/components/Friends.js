@@ -25,17 +25,17 @@ class Friends extends Component {
       });
   }
 
-  handleNameChange = e => {
-    this.setState({ name: e.target.value })
+  handleTextChange = e => {
+    this.setState({ [e.target.name]: e.target.value })
   };
 
-  handleAgeChange = e => {
-    this.setState({ age: e.target.value })
-  };
+  // handleAgeChange = e => {
+  //   this.setState({ age: e.target.value })
+  // };
 
-  handleEmailChange = e => {
-    this.setState({ email: e.target.value })
-  };
+  // handleEmailChange = e => {
+  //   this.setState({ email: e.target.value })
+  // };
 
   handleSubmitFriend = () => {
     const friend = {name: this.state.name, age: this.state.age, email: this.state.email }
@@ -47,6 +47,7 @@ class Friends extends Component {
       .catch(err => {
         console.log("Oopsie", err)
       })
+      this.setState({ name: '', age: '', email: ''})
   };
 
 
@@ -55,9 +56,7 @@ class Friends extends Component {
       <div>
         <FriendForm
           submitFriend={this.handleSubmitFriend}
-          handleNameChange={this.handleNameChange}
-          handleAgeChange={this.handleAgeChange}
-          handleEmailChange={this.handleEmailChange}
+          handleTextChange={this.handleTextChange}
           name={this.state.name}
           age={this.state.age}
           email={this.state.email}/>
