@@ -83,7 +83,7 @@ class Friends extends Component {
           age={this.state.age}
           email={this.state.email}/>
         {this.state.friends.map(friend => (
-          <Friend key={friend.id} friend={friend} handleDeleteFriend={this.handleDeleteFriend} handleEditFriend={this.handleEditFriend} />
+          <Friend key={friend.id} friend={friend} handleDeleteFriend={this.handleDeleteFriend} handleEditFriend={this.handleEditFriend} handleTextChange={this.handleTextChange}/>
         ))}
       </div>
     );
