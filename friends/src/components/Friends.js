@@ -52,7 +52,7 @@ class Friends extends Component {
 
   handleDeleteFriend = id => {
       axios
-      .delete(`http://localhost:5000/friends/${id}`)
+      .delete(`http://localhost:5000/friends/${this.state.friend.id}`)
       .then(res => {
         this.setState({ friends: res.data })
       })
@@ -62,8 +62,9 @@ class Friends extends Component {
   };
 
   handleEditFriend = () => {
+    const friend = {name: this.state.name, age: Number(this.state.age), email: this.state.email }
     axios
-      .put(`http://localhost:5000/friends/${this.state.friends.id}`)
+      .put(`http://localhost:5000/friends/${this.state.friends.id}`, friend)
       .then(res => {
         this.setState({ friends: res.data})
       })
