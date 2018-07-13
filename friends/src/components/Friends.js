@@ -61,6 +61,10 @@ class Friends extends Component {
       })
   };
 
+  updateFriends = friends => {
+    this.setState({ friends })
+  };
+
   // handleEditFriend = () => {
   //   axios
   //     .put(`http://localhost:5000/friends/${this.state.friends.id}`)
@@ -84,7 +88,7 @@ class Friends extends Component {
           age={this.state.age}
           email={this.state.email}/>
         {this.state.friends.map(friend => (
-          <Friend key={friend.id} friend={friend} handleDeleteFriend={this.handleDeleteFriend} />
+          <Friend key={friend.id} friend={friend} handleDeleteFriend={this.handleDeleteFriend} updateFriends={this.updateFriends}/>
         ))}
       </div>
     );

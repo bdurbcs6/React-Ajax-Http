@@ -23,12 +23,13 @@ class Friend extends React.Component  {
   };
 
   handleEditFriend = () => {
+    let { id } = this.props.friend;
     const editFriend = {name: this.state.name, age: this.state.age, email: this.state.email }
     axios
-      .put(`http://localhost:5000/friends/${this.props.friend.id}`, editFriend)
+      .put(`http://localhost:5000/friends/${id}`, editFriend)
       .then(res => {
         console.log(res)
-        this.setState({ friends: res.data})
+        this.props.updateFriends(res.data)
       })
       .catch(err => {
         console.log("error", err)
