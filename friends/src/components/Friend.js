@@ -28,7 +28,6 @@ class Friend extends React.Component  {
     axios
       .put(`http://localhost:5000/friends/${id}`, editFriend)
       .then(res => {
-        console.log(res)
         this.props.updateFriends(res.data)
       })
       .catch(err => {
@@ -47,7 +46,7 @@ class Friend extends React.Component  {
             <EditFriend
               friend={this.props.friend}
               handleEditFriend={this.handleEditFriend}
-              handleTextChange={this.props.handleTextChange}
+              handleTextChange={this.editFriendHandler}
               />
           ) : null}
           <button onClick={this.toggleForm}>Edit Friend</button>
