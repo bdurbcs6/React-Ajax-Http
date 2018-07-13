@@ -24,7 +24,7 @@ class Friend extends React.Component  {
 
   handleEditFriend = () => {
     let { id } = this.props.friend;
-    const editFriend = {name: this.state.name, age: this.state.age, email: this.state.email }
+    const editFriend = {name: this.state.name, age: Number(this.state.age), email: this.state.email }
     axios
       .put(`http://localhost:5000/friends/${id}`, editFriend)
       .then(res => {
@@ -44,7 +44,11 @@ class Friend extends React.Component  {
           Email: {this.props.friend.email}
           <button onClick={() => this.props.handleDeleteFriend(this.props.friend.id)}>Delete Friend!</button>
           {this.state.showForm ? (
-            <EditFriend friend={this.props.friend} handleEditFriend={this.handleEditFriend} handleTextChange={this.props.handleTextChange} />
+            <EditFriend
+              friend={this.props.friend}
+              handleEditFriend={this.handleEditFriend}
+              handleTextChange={this.props.handleTextChange}
+              />
           ) : null}
           <button onClick={this.toggleForm}>Edit Friend</button>
       </div>
